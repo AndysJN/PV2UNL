@@ -8,11 +8,11 @@ using UnityEngine;
 public class MovimientoProgresivo : MonoBehaviour
 {
     // Variables expuestas en el editor
-    [Header("Configuracion de Movimiento")]
-    [SerializeField] private float Velocidad = 25.0f;
-    [SerializeField] private float Aceleracion = 1.0f;
+    [Header("Basics")]
+    [SerializeField] private float Velocity = 25.0f;
+    [SerializeField] private float Acceleration = 1.0f;
 
-    private Vector2 Direccion;
+    private Vector2 Direction;
     private Rigidbody2D ActorRigidbody;
     
     private void OnEnable()
@@ -23,8 +23,8 @@ public class MovimientoProgresivo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Direccion.x = Input.GetAxisRaw("Horizontal");
-        Direccion.y = Input.GetAxisRaw("Vertical");
+        Direction.x = Input.GetAxisRaw("Horizontal");
+        Direction.y = Input.GetAxisRaw("Vertical");
         
         /* Debugs */
         //Debug.Log(Direccion);
@@ -35,12 +35,12 @@ public class MovimientoProgresivo : MonoBehaviour
     {
         // Aparentemente no hace falta normalizar la direccion, si hay que tener en cuenta que tal vez usando un input de joystick puede afectar ?
         // Vector2 DireccionNormalizada = Direccion.normalized;
-        Vector2 VelocidadObjectivo = Direccion * Velocidad;
+        Vector2 TargetVelocity = Direction * Velocity;
 
         ActorRigidbody.linearVelocity = Vector2.Lerp(
             ActorRigidbody.linearVelocity,
-            VelocidadObjectivo,
-            Aceleracion * Time.fixedDeltaTime);
+            TargetVelocity,
+            Acceleration * Time.fixedDeltaTime);
     }
     
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 public class MovimientoLineal : MonoBehaviour
 {
     // Variables expuestas en el editor
-    [Header("Configuracion")]
-    [SerializeField] float velocidad = 5f;
+    [Header("Basics")]
+    [SerializeField] float Velocity = 5f;
     
-    private Vector2 Direccion;
+    private Vector2 Direction;
     private Rigidbody2D ActorRigidbody;
 
     private void OnEnable()
@@ -17,11 +17,11 @@ public class MovimientoLineal : MonoBehaviour
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
     private void Update()
     {
-        Direccion.x = Input.GetAxis("Horizontal");
-        Direccion.y = Input.GetAxis("Vertical");
+        Direction.x = Input.GetAxis("Horizontal");
+        Direction.y = Input.GetAxis("Vertical");
     }
     private void FixedUpdate()
     {
-        ActorRigidbody.MovePosition(ActorRigidbody.position + Direccion * (velocidad * Time.fixedDeltaTime));
+        ActorRigidbody.MovePosition(ActorRigidbody.position + Direction * (Velocity * Time.fixedDeltaTime));
     }
 }

@@ -5,34 +5,34 @@ public class CharacterBase : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     // Propiedades compartidas por los personajes
-    [Header("Personaje Base")]
-    [SerializeField] protected int PuntosDeVidaActuales = 100;
-    [SerializeField] protected int PuntosDeVidaMaximos = 100;
+    [Header("Basics")]
+    [SerializeField] protected int HitPoints = 100;
+    [SerializeField] protected int MaxHitPoints = 100;
 
-    protected bool Vivo = true;
+    protected bool Alive = true;
 
-    public void RecibirDanio(int InDanio)
+    public void TakeDamage(int InDamage)
     {
-        PuntosDeVidaActuales = Mathf.Clamp(PuntosDeVidaActuales - InDanio, 0, PuntosDeVidaMaximos);
-        if (PuntosDeVidaActuales <= 0)
+        HitPoints = Mathf.Clamp(HitPoints - InDamage, 0, MaxHitPoints);
+        if (HitPoints <= 0)
         {
-            Vivo = false;
+            Alive = false;
             //Implementar evento de muerte.
         }
     }
 
-    public void RecibirCuracion(int InCuracion)
+    public void RecibirCuracion(int InHealing)
     {
-        PuntosDeVidaActuales = Mathf.Clamp(PuntosDeVidaActuales + InCuracion, 0, PuntosDeVidaMaximos);
+        HitPoints = Mathf.Clamp(HitPoints + InHealing, 0, MaxHitPoints);
     }
 
-    public bool EstasVivo()
+    public bool IsAlive()
     {
-        return Vivo;
+        return Alive;
     }
 
-    public int GetPuntosDeVidaActuales()
+    public int GetHitPoints()
     {
-        return PuntosDeVidaActuales;
+        return HitPoints;
     }
 }
