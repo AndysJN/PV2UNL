@@ -862,6 +862,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &434455366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8705442366254616654, guid: 97428b49a145bf44c9b66863e8e455ab, type: 3}
+  m_PrefabInstance: {fileID: 753577907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &434455367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3939187958241195160, guid: 97428b49a145bf44c9b66863e8e455ab, type: 3}
@@ -2021,7 +2026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705442366254616654, guid: 97428b49a145bf44c9b66863e8e455ab, type: 3}
       propertyPath: m_Name
-      value: LaberintoParedVert (1)
+      value: LaberintoParedPuzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5178,6 +5183,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
+--- !u!1001 &6870265743152892173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686108333012638328, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171067472216603951, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: m_Name
+      value: PlacaDePresion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191368696232673389, guid: 329c58515ff85ac49815c74867eab721, type: 3}
+      propertyPath: OnPlacaTriggered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 434455366}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 329c58515ff85ac49815c74867eab721, type: 3}
 --- !u!1001 &7258444180517092373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5260,3 +5326,4 @@ SceneRoots:
   - {fileID: 1568338971}
   - {fileID: 1051482219}
   - {fileID: 5737030602335581273}
+  - {fileID: 6870265743152892173}
