@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterBase : MonoBehaviour
 {
@@ -8,8 +10,19 @@ public class CharacterBase : MonoBehaviour
     [Header("Basics")]
     [SerializeField] protected int HitPoints = 100;
     [SerializeField] protected int MaxHitPoints = 100;
-
     protected bool Alive = true;
+    
+    /*
+     * Eventos del jugador
+     */
+
+    [SerializeField]
+    private UnityEvent<string> OnHitPointsChanged;
+
+    private void Start()
+    {
+        OnHitPointsChanged.Invoke(HitPoints.ToString());
+    }
 
     public void TakeDamage(int InDamage)
     {
@@ -19,6 +32,7 @@ public class CharacterBase : MonoBehaviour
             Alive = false;
             //Implementar evento de muerte.
         }
+        OnHitPointsChanged.Invoke(HitPoints.ToString());
     }
 
     public void RecibirCuracion(int InHealing)
