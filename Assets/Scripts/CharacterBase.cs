@@ -18,6 +18,9 @@ public class CharacterBase : MonoBehaviour
 
     [SerializeField]
     private UnityEvent<string> OnHitPointsChanged;
+    
+    [SerializeField]
+    private UnityEvent<bool, int> OnCharacterDied;
 
     private void Start()
     {
@@ -30,7 +33,7 @@ public class CharacterBase : MonoBehaviour
         if (HitPoints <= 0)
         {
             Alive = false;
-            //Implementar evento de muerte.
+            OnCharacterDied.Invoke(Alive, GetComponent<Puntaje>().GetScore());
         }
         OnHitPointsChanged.Invoke(HitPoints.ToString());
     }
