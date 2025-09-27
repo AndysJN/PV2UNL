@@ -8,9 +8,10 @@ public class TransicionEnElMapa : MonoBehaviour
     [SerializeField] private PolygonCollider2D MapBoundry;
     private CinemachineConfiner2D CMConfiner2D;
     [SerializeField] private Direction TravelDirection;
+    [SerializeField] private Transform TeleportToPosition;
     [SerializeField] private float PushDistance = 2f;
     
-    enum Direction {Up, Down, Left, Right}
+    enum Direction {Up, Down, Left, Right, Teleport}
 
     private void Awake()
     {
@@ -43,6 +44,9 @@ public class TransicionEnElMapa : MonoBehaviour
                 break;
             case Direction.Right:
                 NewPosition.y -= PushDistance;
+                break;
+            case Direction.Teleport:
+                NewPosition = TeleportToPosition.position;
                 break;
             default:
                 break;
