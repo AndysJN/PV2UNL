@@ -6,16 +6,14 @@ public class Puntaje : MonoBehaviour
     /* Eventos de puntaje*/
     [SerializeField] private UnityEvent<int> OnPointsChanged;
     
-    private int Score = 0;
-    
     public int GetScore()
     {
-        return Score;
+        return GameManager.Instance.GetScore();
     }
     
     public void AddScore(int InScore)
     {
-        Score += InScore;
-        OnPointsChanged.Invoke(Score);
+        GameManager.Instance.AddScore(InScore);
+        OnPointsChanged.Invoke(GameManager.Instance.GetScore());
     }
 }
