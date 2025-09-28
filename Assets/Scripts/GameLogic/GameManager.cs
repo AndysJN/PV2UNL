@@ -74,6 +74,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(EscenaDePortada);
     }
+
+    public void RetryLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     
     public void QuitGame()
     {

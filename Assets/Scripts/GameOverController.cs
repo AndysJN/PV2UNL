@@ -42,7 +42,7 @@ public class GameOverController : MonoBehaviour
     private void RetryGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.RetryLevel();
     }
     
     private void ReturnToMainMenu()
