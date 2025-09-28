@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
@@ -21,6 +23,35 @@ public class GameOverController : MonoBehaviour
         RetryButton.onClick.AddListener(RetryGame);
         MainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
+
+    private void OnEnable()
+    {
+        GameEvents.OnPause += PauseGame;
+        GameEvents.OnResume += ResumeGame;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnPause -= PauseGame;
+        GameEvents.OnResume -= ResumeGame;
+    }
+
+    private void PauseGame()
+    {
+        GameOverText.text = "Juego Pausado";
+        RetryButton.onClick.RemoveListener(RetryGame);
+        RetryButton.onClick.AddListener(ResumeGame);
+        PointsText.text = GameManager.Instance.GetScore().ToString();
+        GameOverPanel.SetActive(true);
+    }
+
+    private void ResumeGame()
+    {
+        GameOverPanel.SetActive(false);
+        RetryButton.onClick.RemoveListener(ResumeGame);
+        RetryButton.onClick.AddListener(RetryGame);
+        Time.timeScale = 1;
+    }
     
     public void ShowGameOver(bool IsCharacterAlive, int InTotalPoints)
     {
@@ -34,7 +65,7 @@ public class GameOverController : MonoBehaviour
             GameOverText.text = "PERDISTE!";
             HasPlayerWon = false;
         }
-        PointsText.text = InTotalPoints.ToString();
+        PointsText.text = GameManager.Instance.GetScore().ToString();
         Time.timeScale = 0f;
         GameOverPanel.SetActive(true);
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,33 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale != 0)
+            {
+                GameEvents.TriggerPauseGame();
+            }
+            else
+            {
+                GameEvents.TriggerResumeGame();
+            }
+        }
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnPause += PauseGame;
+        GameEvents.OnResume += ResumeGame;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnPause -= PauseGame;
+        GameEvents.OnResume -= ResumeGame;       
     }
 
     public void AddScore(int InScore)
@@ -78,6 +106,16 @@ public class GameManager : MonoBehaviour
     public void RetryLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
     
     public void QuitGame()
