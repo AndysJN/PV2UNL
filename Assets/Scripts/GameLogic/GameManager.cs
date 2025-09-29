@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Configuracion del juego")]
     [SerializeField] private int EscenaDePortada = 0; 
+    [SerializeField] private PlayerProgressionData PerfilJugador;
     public static GameManager Instance { get; private set; }
-
-    private int Score = 0;
+    
+    public PlayerProgressionData GetPerfilJugador => PerfilJugador;
 
     private void Awake()
     {
@@ -51,17 +53,17 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int InScore)
     {
-        Score += InScore;
+        PerfilJugador.MScore += InScore;
     }
 
     public void ResetScore()
     {
-        Score = 0;
+        PerfilJugador.MScore = 0;
     }
 
     public int GetScore()
     {
-        return Score;
+        return PerfilJugador.MScore;
     }
 
     public void GotoNextScene()
@@ -97,6 +99,11 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No hay mas escenas antes de la actual, llevando a la escena de portada");
         }
     }
+    
+    public void GotoScene(int InSceneIndex)
+    {
+        SceneManager.LoadScene(InSceneIndex);
+    }
 
     public void GotoPortadaScene()
     {
@@ -125,6 +132,19 @@ public class GameManager : MonoBehaviour
     #else
         Application.Quit();
     #endif
+    }
+
+    public void ResetLevel()
+    {
+        PerfilJugador.MNivel = 1;
+        PerfilJugador.MExperiencia = 0;
+        PerfilJugador.MExperienciaProximoNivel = 100;
+    }
+    
+    public void ResetProgress()
+    {
+        ResetLevel();
+        ResetScore();
     }
     
 };

@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerProgressionData", menuName = "ScriptableObjects/PlayerProgressionData")]
 public class PlayerProgressionData : ScriptableObject
 {
+    [Header("Configuracion de Experciencia")]
+    [SerializeField]
     private int Nivel;
 
     public int MNivel
@@ -11,6 +13,15 @@ public class PlayerProgressionData : ScriptableObject
         set => Nivel = value;
     }
     
+    private int Score = 0;
+    
+    public int MScore
+    {
+        get => Score; 
+        set => Score = value;
+    }
+    
+    [SerializeField]
     private int Experiencia;
 
     public int MExperiencia
@@ -20,7 +31,6 @@ public class PlayerProgressionData : ScriptableObject
     }
     
     [SerializeField]
-    [Header("Configuracion de Experciencia")]
     [Range(0,100)]
     [Tooltip("Cantidad de Experiencia necesaria para el proximo nivel")]
     private int ExperienciaProximoNivel;
@@ -32,9 +42,9 @@ public class PlayerProgressionData : ScriptableObject
     }
     
     [SerializeField]
-    [Range(0,500)]
-    [Tooltip("Numero en el cual escala la experiencia requerida nivel a nivel")]
-    private int EscalarExperiencia;
+    [Range(0,1)]
+    [Tooltip("Multiplicador de experiencia para los niveles siguientes")]
+    private int EscalarExperiencia = 2;
 
     public int MEscalarExperiencia
     {
@@ -42,8 +52,8 @@ public class PlayerProgressionData : ScriptableObject
         set => EscalarExperiencia = value;
     }
     
-    [Header("Configuracion de Atributos del  Personaje")]
-    [SerializeField] private int HitPoints = 100;
+    [Header("Atributos del Personaje")]
+    [System.NonSerialized] private int HitPoints = 100;
 
     public int MHitPoints
     {
@@ -55,7 +65,6 @@ public class PlayerProgressionData : ScriptableObject
     public int MMaxHitPoints
     {
         get => MaxHitPoints;
-        set => MaxHitPoints = value;
     }
     
 }

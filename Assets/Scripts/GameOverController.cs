@@ -12,16 +12,20 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PointsText;
     [SerializeField] private Button RetryButton;
     [SerializeField] private Button MainMenuButton;
+    [SerializeField] private Button AbandonButton;
+    [SerializeField] private GameObject PausePopUp;
     private bool HasPlayerWon;
     
     private void Awake()
     {
         /* Ocultar panel en el inicio */
         GameOverPanel.SetActive(false);
+        PausePopUp.SetActive(false);
         
         // Agregar callbacks a los delegates
         RetryButton.onClick.AddListener(RetryGame);
         MainMenuButton.onClick.AddListener(ReturnToMainMenu);
+        AbandonButton.onClick.AddListener(ReturnToMainMenuAndReset);
     }
 
     private void OnEnable()
@@ -38,19 +42,12 @@ public class GameOverController : MonoBehaviour
 
     private void PauseGame()
     {
-        GameOverText.text = "Juego Pausado";
-        RetryButton.onClick.RemoveListener(RetryGame);
-        RetryButton.onClick.AddListener(ResumeGame);
-        PointsText.text = GameManager.Instance.GetScore().ToString();
-        GameOverPanel.SetActive(true);
+        PausePopUp.SetActive(true);
     }
 
     private void ResumeGame()
     {
-        GameOverPanel.SetActive(false);
-        RetryButton.onClick.RemoveListener(ResumeGame);
-        RetryButton.onClick.AddListener(RetryGame);
-        Time.timeScale = 1;
+        PausePopUp.SetActive(false);
     }
     
     public void ShowGameOver(bool IsCharacterAlive, int InTotalPoints)
@@ -80,5 +77,11 @@ public class GameOverController : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameManager.Instance.GotoPortadaScene();
+    }
+
+    private void ReturnToMainMenuAndReset()
+    {
+        GameManager.Instance.ResetProgress();
+        ReturnToMainMenu();
     }
 }

@@ -9,7 +9,7 @@ public class CharacterBase : MonoBehaviour
     // Propiedades Refactoreadas en ScriptableObject
     [Header("Perfil Del Jugador")]
     [SerializeField]
-    private PlayerProgressionData PerfilJugador;
+    private PlayerProgressionData PerfilJugador = GameManager.Instance.GetPerfilJugador;
     protected bool Alive = true;
     
     /*
@@ -24,6 +24,7 @@ public class CharacterBase : MonoBehaviour
 
     private void Start()
     {
+        Respawn();
         OnHitPointsChanged.Invoke(PerfilJugador.MHitPoints.ToString());
     }
 
@@ -51,5 +52,17 @@ public class CharacterBase : MonoBehaviour
     public int GetHitPoints()
     {
         return PerfilJugador.MHitPoints;
+    }
+    
+    public PlayerProgressionData GetPerfilJugador()
+    {
+        return PerfilJugador;
+    }
+    
+    private void Respawn()
+    {
+        Alive = true;
+        PerfilJugador.MHitPoints = PerfilJugador.MMaxHitPoints;
+        OnHitPointsChanged.Invoke(PerfilJugador.MHitPoints.ToString());
     }
 }

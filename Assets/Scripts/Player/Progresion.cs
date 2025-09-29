@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Progresion : MonoBehaviour
 {
-    [SerializeField]
+    
     private PlayerProgressionData PerfilJugador;
+
+    private void Awake()
+    {
+        PerfilJugador = GameManager.Instance.GetPerfilJugador;
+    }
 
     public void GanarExperiencia(int InExperiencia)
     {
@@ -17,7 +23,7 @@ public class Progresion : MonoBehaviour
     private void SubirNivel()
     {
         PerfilJugador.MNivel++;
-        PerfilJugador.MExperiencia -= PerfilJugador.MExperienciaProximoNivel;
-        PerfilJugador.MExperienciaProximoNivel += PerfilJugador.MEscalarExperiencia;
+        PerfilJugador.MExperiencia = 0;
+        PerfilJugador.MExperienciaProximoNivel *= PerfilJugador.MEscalarExperiencia;
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.SceneManagement;
 
 public static class GameEvents
 {
@@ -9,6 +10,7 @@ public static class GameEvents
 
     public static void TriggerPauseGame()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0) return;
         OnPause?.Invoke();
     }
 
