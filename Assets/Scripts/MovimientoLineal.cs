@@ -3,8 +3,8 @@ using UnityEngine;
 public class MovimientoLineal : MonoBehaviour
 {
     // Variables expuestas en el editor
-    [Header("Basics")]
-    [SerializeField] float Velocity = 5f;
+    private PlayerProgressionData PerfilJugador;
+
     
     private Vector2 Direction;
     private Rigidbody2D ActorRigidbody;
@@ -14,6 +14,7 @@ public class MovimientoLineal : MonoBehaviour
     {
         ActorRigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        PerfilJugador = GameManager.Instance.GetPerfilJugador;
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -37,6 +38,6 @@ public class MovimientoLineal : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        ActorRigidbody.MovePosition(ActorRigidbody.position + Direction * (Velocity * Time.fixedDeltaTime));
+        ActorRigidbody.MovePosition(ActorRigidbody.position + Direction * (PerfilJugador.MVelocity * Time.fixedDeltaTime));
     }
 }

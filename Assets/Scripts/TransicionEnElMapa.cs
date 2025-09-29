@@ -10,8 +10,9 @@ public class TransicionEnElMapa : MonoBehaviour
     [SerializeField] private Direction TravelDirection;
     [SerializeField] private Transform TeleportToPosition;
     [SerializeField] private float PushDistance = 2f;
+    [SerializeField] private int FightMapIndex;
     
-    enum Direction {Up, Down, Left, Right, Teleport}
+    enum Direction {Up, Down, Left, Right, Teleport, TeleportToMap}
 
     private void Awake()
     {
@@ -47,6 +48,9 @@ public class TransicionEnElMapa : MonoBehaviour
                 break;
             case Direction.Teleport:
                 NewPosition = TeleportToPosition.position;
+                break;
+            case Direction.TeleportToMap:
+                GameManager.Instance.GotoScene(2);
                 break;
             default:
                 break;

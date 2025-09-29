@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,17 +6,20 @@ public class Puntaje : MonoBehaviour
 {
     /* Eventos de puntaje*/
     [SerializeField] private UnityEvent<int> OnPointsChanged;
-    
-    private int Score = 0;
-    
+
+    private void Awake()
+    {
+        OnPointsChanged.Invoke(GameManager.Instance.GetScore());
+    }
+
     public int GetScore()
     {
-        return Score;
+        return GameManager.Instance.GetScore();
     }
     
     public void AddScore(int InScore)
     {
-        Score += InScore;
-        OnPointsChanged.Invoke(Score);
+        GameManager.Instance.AddScore(InScore);
+        OnPointsChanged.Invoke(GameManager.Instance.GetScore());
     }
 }

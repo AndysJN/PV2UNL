@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -747616938845668392}
   - component: {fileID: 2247712676027742961}
   - component: {fileID: 6770756510354524178}
+  - component: {fileID: 5023648247926484691}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -132,8 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a2d056d49a93547982dc3e8a9c7ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPoints: 100
-  MaxHitPoints: 100
+  PerfilJugador: {fileID: 11400000, guid: 3029520f9155e2446983d2b414317c47, type: 2}
   OnHitPointsChanged:
     m_PersistentCalls:
       m_Calls:
@@ -272,3 +272,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8993182, y: 0.8489783}
   m_EdgeRadius: 0
+--- !u!114 &5023648247926484691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903507496158995161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917c4cae066a1b84aa6fc54ca02f93a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

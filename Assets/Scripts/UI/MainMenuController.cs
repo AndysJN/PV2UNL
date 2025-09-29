@@ -3,18 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public void ResetProgress()
+    {
+        GameManager.Instance.ResetProgress();
+    }
     public void LoadNextScene()
     {
-        int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(CurrentSceneIndex + 1);
+        GameManager.Instance.GotoNextScene();
     }
     
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
-                Application.Quit();
-        #endif
+       GameManager.Instance.QuitGame();
     }
 }

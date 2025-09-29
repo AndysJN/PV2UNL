@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Portada.unity
     guid: 8f253c1c66b37ae49b37d2707e67868f
   - enabled: 1
+    path: Assets/Scenes/BaseMap.unity
+    guid: 2eeace6b9a575e64e82c01a04ce65f31
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
