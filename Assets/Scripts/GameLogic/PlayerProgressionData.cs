@@ -41,4 +41,21 @@ public class PlayerProgressionData : ScriptableObject
         get => EscalarExperiencia;
         set => EscalarExperiencia = value;
     }
+    
+    [Header("Configuracion de Atributos del  Personaje")]
+    [SerializeField] private int HitPoints = 100;
+
+    public int MHitPoints
+    {
+        get => HitPoints;
+        set => HitPoints = value;
+    }
+        
+    [SerializeField] private int MaxHitPoints = 100;
+    public int MMaxHitPoints
+    {
+        get => MaxHitPoints;
+        set => MaxHitPoints = value;
+    }
+    
 }

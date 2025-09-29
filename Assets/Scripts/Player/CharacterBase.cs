@@ -7,9 +7,9 @@ public class CharacterBase : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     // Propiedades Refactoreadas en ScriptableObject
-    [Header("Basics")]
-    [SerializeField] protected int HitPoints = 100;
-    [SerializeField] protected int MaxHitPoints = 100;
+    [Header("Perfil Del Jugador")]
+    [SerializeField]
+    private PlayerProgressionData PerfilJugador;
     protected bool Alive = true;
     
     /*
@@ -24,23 +24,23 @@ public class CharacterBase : MonoBehaviour
 
     private void Start()
     {
-        OnHitPointsChanged.Invoke(HitPoints.ToString());
+        OnHitPointsChanged.Invoke(PerfilJugador.MHitPoints.ToString());
     }
 
     public void TakeDamage(int InDamage)
     {
-        HitPoints = Mathf.Clamp(HitPoints - InDamage, 0, MaxHitPoints);
-        if (HitPoints <= 0)
+        PerfilJugador.MHitPoints = Mathf.Clamp(PerfilJugador.MHitPoints - InDamage, 0, PerfilJugador.MMaxHitPoints);
+        if (PerfilJugador.MHitPoints <= 0)
         {
             Alive = false;
             OnCharacterDied.Invoke(Alive, GetComponent<Puntaje>().GetScore());
         }
-        OnHitPointsChanged.Invoke(HitPoints.ToString());
+        OnHitPointsChanged.Invoke(PerfilJugador.MHitPoints.ToString());
     }
 
     public void RecibirCuracion(int InHealing)
     {
-        HitPoints = Mathf.Clamp(HitPoints + InHealing, 0, MaxHitPoints);
+        PerfilJugador.MHitPoints = Mathf.Clamp(PerfilJugador.MHitPoints + InHealing, 0, PerfilJugador.MMaxHitPoints);
     }
 
     public bool IsAlive()
@@ -50,6 +50,6 @@ public class CharacterBase : MonoBehaviour
 
     public int GetHitPoints()
     {
-        return HitPoints;
+        return PerfilJugador.MHitPoints;
     }
 }
