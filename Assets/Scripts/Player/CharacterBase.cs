@@ -6,7 +6,7 @@ public class CharacterBase : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
-    // Propiedades compartidas por los personajes
+    // Propiedades Refactoreadas en ScriptableObject
     [Header("Basics")]
     [SerializeField] protected int HitPoints = 100;
     [SerializeField] protected int MaxHitPoints = 100;
