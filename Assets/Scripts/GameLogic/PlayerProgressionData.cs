@@ -65,4 +65,20 @@ public class PlayerProgressionData : ScriptableObject
         get => MaxHitPoints;
     }
     
+    [SerializeField] float Velocity = 5f;
+
+    public float MVelocity
+    {
+        get => Velocity;
+        set => Velocity = value;   
+    }
+    
+    [Range(1,2)]
+    [SerializeField]private float PorcAumVel = 1.1f;
+    
+    public float MPorcAumVel
+    {
+        get => PorcAumVel;
+    }
+    
 }

@@ -17,3 +17,5 @@ MonoBehaviour:
   ExperienciaProximoNivel: 100
   EscalarExperiencia: 2
   MaxHitPoints: 100
+  Velocity: 5
+  PorcAumVel: 1.1

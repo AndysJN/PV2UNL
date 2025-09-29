@@ -36,5 +36,6 @@ public class Progresion : MonoBehaviour
         OnExperienciaChanged.Invoke(PerfilJugador.MExperiencia);
         PerfilJugador.MExperienciaProximoNivel *= PerfilJugador.MEscalarExperiencia;
         OnMaxExpChanged.Invoke(PerfilJugador.MExperienciaProximoNivel);
+        PerfilJugador.MVelocity *= PerfilJugador.MPorcAumVel;
     }
 }

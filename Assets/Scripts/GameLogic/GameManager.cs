@@ -143,10 +143,16 @@ public class GameManager : MonoBehaviour
         PerfilJugador.MExperienciaProximoNivel = 100;
     }
     
+    public void ResetSpeed()
+    {
+        PerfilJugador.MVelocity = 5f;
+    }
+    
     public void ResetProgress()
     {
         ResetLevel();
         ResetScore();
+        ResetSpeed();
     }
     
 };

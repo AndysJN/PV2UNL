@@ -1912,7 +1912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.4947, y: -3.1482}
+  m_AnchoredPosition: {x: 10.4947, y: 54}
   m_SizeDelta: {x: 1035.6167, y: 188.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912674992
@@ -1935,11 +1935,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sal de la aldea a comenzar tus aventuras glotonas. Busca comida, sobrevive
-    mientras subes de nivel.
+  m_text: 'Sal de la aldea por el norte y comienza tus aventuras glotonas. Busca
+    comida y sobrevive mientras subes de nivel.
 
+    Puedes resetear el progreso.
+    Si cierras el juego, tambien lo perderas.
 
-    Pausa y despausa el juego con la letra Escape.'
+    Pausa y despausa el juego con
+    la tecla Escape.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
