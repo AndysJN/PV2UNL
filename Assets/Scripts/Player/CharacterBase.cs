@@ -9,7 +9,7 @@ public class CharacterBase : MonoBehaviour
     // Propiedades Refactoreadas en ScriptableObject
     [Header("Perfil Del Jugador")]
     [SerializeField]
-    private PlayerProgressionData PerfilJugador = GameManager.Instance.GetPerfilJugador;
+    private PlayerProgressionData PerfilJugador;
     protected bool Alive = true;
     
     /*
@@ -21,6 +21,11 @@ public class CharacterBase : MonoBehaviour
     
     [SerializeField]
     private UnityEvent<bool, int> OnCharacterDied;
+
+    private void Awake()
+    {
+        PerfilJugador = GameManager.Instance.GetPerfilJugador;
+    }
 
     private void Start()
     {

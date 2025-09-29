@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        
+        AddScore(0);
     }
 
     private void Update()

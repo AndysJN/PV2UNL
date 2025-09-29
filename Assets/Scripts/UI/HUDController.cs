@@ -7,7 +7,7 @@ public class HUDController : MonoBehaviour
 
     private void Awake()
     {
-        TextToModify.text = GameManager.Instance.GetScore().ToString();
+        //TextToModify.text = GameManager.Instance.GetScore().ToString();
     }
 
     public void UpdateText(string InText)

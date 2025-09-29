@@ -31,7 +31,6 @@ public class PlayerProgressionData : ScriptableObject
     }
     
     [SerializeField]
-    [Range(0,100)]
     [Tooltip("Cantidad de Experiencia necesaria para el proximo nivel")]
     private int ExperienciaProximoNivel;
 
@@ -42,7 +41,6 @@ public class PlayerProgressionData : ScriptableObject
     }
     
     [SerializeField]
-    [Range(0,1)]
     [Tooltip("Multiplicador de experiencia para los niveles siguientes")]
     private int EscalarExperiencia = 2;
 

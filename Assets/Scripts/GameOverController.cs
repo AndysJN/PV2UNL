@@ -13,6 +13,7 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private Button RetryButton;
     [SerializeField] private Button MainMenuButton;
     [SerializeField] private Button AbandonButton;
+    [SerializeField] private Button AldeaButton;
     [SerializeField] private GameObject PausePopUp;
     private bool HasPlayerWon;
     
@@ -26,6 +27,10 @@ public class GameOverController : MonoBehaviour
         RetryButton.onClick.AddListener(RetryGame);
         MainMenuButton.onClick.AddListener(ReturnToMainMenu);
         AbandonButton.onClick.AddListener(ReturnToMainMenuAndReset);
+        if (AldeaButton != null)
+        {
+            AldeaButton.onClick.AddListener(ReturnToAldeaAndReset);
+        }
     }
 
     private void OnEnable()
@@ -83,5 +88,12 @@ public class GameOverController : MonoBehaviour
     {
         GameManager.Instance.ResetProgress();
         ReturnToMainMenu();
+    }
+
+    private void ReturnToAldeaAndReset()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.ResetProgress();
+        GameManager.Instance.GotoScene(1);
     }
 }
