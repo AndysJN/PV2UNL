@@ -2502,6 +2502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa6f7682d3c7e64785389826f7d4ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EscenaDePortada: 0
 --- !u!4 &649283512
 Transform:
   m_ObjectHideFlags: 0
@@ -7803,6 +7804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jugador
       objectReference: {fileID: 0}
+    - target: {fileID: 7384846440997168631, guid: 72c16cdad6d7275419d903ed4f055291, type: 3}
+      propertyPath: PerfilJugador
+      value: 
+      objectReference: {fileID: 11400000, guid: 3029520f9155e2446983d2b414317c47, type: 2}
     - target: {fileID: 7384846440997168631, guid: 72c16cdad6d7275419d903ed4f055291, type: 3}
       propertyPath: OnCharacterDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
