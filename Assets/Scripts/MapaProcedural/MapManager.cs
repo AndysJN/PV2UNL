@@ -46,7 +46,7 @@ public class BoardManager : MonoBehaviour
                 // }
 
                 Tile GroundTile = GroundTiles[Random.Range(0, GroundTiles.Length)];
-
+                BoardData[x,y].Spawneable = true;
               
                 TileMapGround.SetTile(new Vector3Int(x, y, 0), GroundTile);
                 if (BorderTile != null) TileMapBorder.SetTile(new Vector3Int(x, y, 0), BorderTile);
