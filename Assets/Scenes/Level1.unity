@@ -5546,38 +5546,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5b332ea264a1e4a88cfde8ff3a4087, type: 3}
---- !u!1 &1251463779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3336203676960721721, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
-  m_PrefabInstance: {fileID: 5737030602335581273}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1251463780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251463779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a511cd7fa4e5649aa957c0489d774c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnCharacterMapReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 371907715}
-        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: ShowGameOver
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1255415095
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,13 +9436,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6713211314444608161, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
+      propertyPath: OnCharacterMapReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 371907715}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3336203676960721721, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1251463780}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
 --- !u!1001 &6870265743152892173
 PrefabInstance:
