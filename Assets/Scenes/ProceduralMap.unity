@@ -1874,6 +1874,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56264c9ecc3fa954a9c775dc6836d129, type: 2}
   BorderTiles:
   - {fileID: 11400000, guid: 883c954d7186b7a419cb139650d8e9dd, type: 2}
+  MetaPrefab: {fileID: 3336203676960721721, guid: 4dd2bbb25c47a7344b868a4afbca949d, type: 3}
+  PickupPrefab: {fileID: 5849050065183902789, guid: 5783fc2c721bca546a77e5908695de9b, type: 3}
+  MetaCount: 1
+  PickupCount: 10
+  SpawnMarginFromBorder: 1
+  RandomSeed: 0
 --- !u!1 &743103414
 GameObject:
   m_ObjectHideFlags: 0

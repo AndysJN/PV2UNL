@@ -177,3 +177,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Points: 10
   Experiencia: 50
+  SpriteTable:
+  - Sprite: {fileID: 21300000, guid: 5619f3ea9d4767f4d81d744b76414782, type: 3}
+    Points: 10
+    Experiencia: 5
+  - Sprite: {fileID: 21300000, guid: eaf8d011dc5769f4cb1188873e1fac95, type: 3}
+    Points: 20
+    Experiencia: 10
+  - Sprite: {fileID: 21300000, guid: 2d89ae9c4af3f1d4caa408023cb2a893, type: 3}
+    Points: 30
+    Experiencia: 15
+  - Sprite: {fileID: 21300000, guid: 69a8e161ac8999f4cb6e750ad44b1934, type: 3}
+    Points: 40
+    Experiencia: 20
+  - Sprite: {fileID: 21300000, guid: f2374a1efd2ef3f41b0543ee4f2f7dd8, type: 3}
+    Points: 60
+    Experiencia: 50
+  - Sprite: {fileID: 21300000, guid: 36b68936e8eca26499df794c25699977, type: 3}
+    Points: 80
+    Experiencia: 50
+  - Sprite: {fileID: 21300000, guid: bf50f94e03a135249ad34b444451479b, type: 3}
+    Points: 100
+    Experiencia: 60
+  - Sprite: {fileID: 21300000, guid: bf50f94e03a135249ad34b444451479b, type: 3}
+    Points: 100
+    Experiencia: 60
+  RandomizeSprite: 1
