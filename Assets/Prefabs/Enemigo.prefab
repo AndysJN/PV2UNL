@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: -1113856149
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 5546671543968653177, guid: ae0430b2909f260428d586ee0630940e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,6 +177,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+  SpriteTable:
+  - Sprite: {fileID: 5546671543968653177, guid: ae0430b2909f260428d586ee0630940e, type: 3}
+    Damage: 10
+  - Sprite: {fileID: 7860893253022973495, guid: eb7d0b723a1d83f4482f206a072830dd, type: 3}
+    Damage: 20
+  - Sprite: {fileID: 5546671543968653177, guid: 8838afb45d0ce884888f8b41111cae05, type: 3}
+    Damage: 30
+  - Sprite: {fileID: 5546671543968653177, guid: 2408630329633b64583a2e8e7efdea13, type: 3}
+    Damage: 40
+  RandomizeSprite: 1
 --- !u!114 &3805350816856075144
 MonoBehaviour:
   m_ObjectHideFlags: 0

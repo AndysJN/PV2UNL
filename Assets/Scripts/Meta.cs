@@ -23,15 +23,15 @@ public class Meta : MonoBehaviour
         }
     }
     
-    private bool HasValidPersistentListeners(UnityEvent<bool, int> evt)
+    private bool HasValidPersistentListeners(UnityEvent<bool, int> Evt)
     {
-        if (evt == null) return false;
-        int count = evt.GetPersistentEventCount();
-        for (int i = 0; i < count; i++)
+        if (Evt == null) return false;
+        int Count = Evt.GetPersistentEventCount();
+        for (int i = 0; i < Count; ++i)
         {
-            var target = evt.GetPersistentTarget(i);
-            var method = evt.GetPersistentMethodName(i);
-            if (target != null && !string.IsNullOrEmpty(method))
+            var Target = Evt.GetPersistentTarget(i);
+            var Method = Evt.GetPersistentMethodName(i);
+            if (Target != null && !string.IsNullOrEmpty(Method))
                 return true;
         }
         return false;

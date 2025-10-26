@@ -28,13 +28,13 @@ public class PickUp : MonoBehaviour
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
 
-        var col = GetComponent<Collider2D>();
+        Collider2D col = GetComponent<Collider2D>();
         col.isTrigger = true;
         
         Lookup = new Dictionary<Sprite, SpriteEntry>();
         if (SpriteTable != null)
         {
-            foreach (var e in SpriteTable)
+            foreach (SpriteEntry e in SpriteTable)
             {
                 if (e == null || e.Sprite == null) continue;
                 Lookup[e.Sprite] = e; // último gana si hay duplicados
@@ -46,13 +46,13 @@ public class PickUp : MonoBehaviour
     {
         if (RandomizeSprite && SpriteTable != null && SpriteTable.Length > 0)
         {
-            var chosen = SpriteTable[Random.Range(0, SpriteTable.Length)];
-            if (chosen != null && chosen.Sprite != null)
-                SpriteRenderer.sprite = chosen.Sprite;
+            SpriteEntry ChosenPickup = SpriteTable[Random.Range(0, SpriteTable.Length)];
+            if (ChosenPickup != null && ChosenPickup.Sprite != null)
+                SpriteRenderer.sprite = ChosenPickup.Sprite;
         }
         
-        var sprite = SpriteRenderer.sprite;
-        if (sprite != null && Lookup != null && Lookup.TryGetValue(sprite, out var entry))
+        Sprite sprite = SpriteRenderer.sprite;
+        if (sprite != null && Lookup != null && Lookup.TryGetValue(sprite, out SpriteEntry entry))
         {
             Points = entry.Points;
             Experiencia = entry.Experiencia;
