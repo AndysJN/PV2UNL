@@ -1878,6 +1878,9 @@ MonoBehaviour:
   PickupPrefab: {fileID: 5849050065183902789, guid: 5783fc2c721bca546a77e5908695de9b, type: 3}
   MetaCount: 1
   PickupCount: 10
+  EnemyPrefabs:
+  - {fileID: 3816056197255965036, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+  EnemyCount: 5
   SpawnMarginFromBorder: 1
   RandomSeed: 0
 --- !u!1 &743103414

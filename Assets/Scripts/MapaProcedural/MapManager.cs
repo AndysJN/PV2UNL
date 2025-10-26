@@ -27,6 +27,10 @@ public class BoardManager : MonoBehaviour
     
     [Min(0)] public int MetaCount = 1;
     [Min(0)] public int PickupCount = 10;
+    
+    [Header("Enemigos")]
+    public GameObject[] EnemyPrefabs;
+    [Min(0)] public int EnemyCount = 0;
 
     [Tooltip("Optional: Margen donde no esta permitido spawnear objetos.")]
     [Min(0)] public int SpawnMarginFromBorder = 1;
@@ -80,7 +84,7 @@ public class BoardManager : MonoBehaviour
     
     void SpawnThings()
     {
-        var Candidates = new List<Vector2Int>();
+        List<Vector2Int> Candidates = new List<Vector2Int>();
         int MinX = Mathf.Clamp(SpawnMarginFromBorder, 1, Width - 2);
         int MaxX = Mathf.Clamp(Width - 1 - SpawnMarginFromBorder, 1, Width - 2);
         int MinY = Mathf.Clamp(SpawnMarginFromBorder, 1, Height - 2);
@@ -98,13 +102,14 @@ public class BoardManager : MonoBehaviour
         Shuffle(Candidates);
 
         int MetaToSpawn = Mathf.Clamp(MetaCount, 0, Candidates.Count);
-        int PickupToSpawn = Mathf.Clamp(PickupCount, 0, Mathf.Max(0, Candidates.Count - MetaToSpawn));
+        int PickupToSpawn = Mathf.Clamp(PickupCount, 0, Mathf.Max(0, Candidates.Count));
+        
 
         // Spawn Meta(s)
         for (int i = 0; i < MetaToSpawn; ++i)
         {
             if (MetaPrefab == null) break;
-            var cell = Candidates[0];
+            Vector2Int cell = Candidates[0];
             Candidates.RemoveAt(0);
             InstantiateAtCell(MetaPrefab, cell);
         }
@@ -113,19 +118,34 @@ public class BoardManager : MonoBehaviour
         for (int i = 0; i < PickupToSpawn; ++i)
         {
             if (PickupPrefab == null) break;
-            var cell = Candidates[0];
+            Vector2Int cell = Candidates[0];
             Candidates.RemoveAt(0);
             InstantiateAtCell(PickupPrefab, cell);
         }
+        
+        // Spawn Enemigos
+        if (EnemyPrefabs != null && EnemyPrefabs.Length > 0 && EnemyCount > 0)
+        {
+            int EnemyToSpawn = Mathf.Clamp(EnemyCount, 0, Mathf.Max(0, Candidates.Count));
+            for (int i = 0; i < EnemyToSpawn; ++i)
+            {
+                GameObject Prefab = EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)];
+                if (Prefab == null) continue;
+
+                Vector2Int cell = Candidates[0];
+                Candidates.RemoveAt(0);
+                InstantiateAtCell(Prefab, cell);
+            }
+        }
     }
 
-    void InstantiateAtCell(GameObject prefab, Vector2Int cell)
+    void InstantiateAtCell(GameObject Prefab, Vector2Int cell)
     {
         Vector3Int cell3 = new Vector3Int(cell.x, cell.y, 0);
         Vector3 worldPos = TileMapGround.CellToWorld(cell3) + TileMapGround.cellSize * 0.5f;
         worldPos.z = 0f;
 
-        Instantiate(prefab, worldPos, Quaternion.identity, transform);
+        Instantiate(Prefab, worldPos, Quaternion.identity, transform);
     }
     
     static void Shuffle<T>(IList<T> list)

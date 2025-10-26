@@ -1043,11 +1043,16 @@ PrefabInstance:
       propertyPath: Damage
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: RandomizeSprite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4424291846816458487, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5546671543968653177, guid: ae0430b2909f260428d586ee0630940e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3805350816856075144, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1569,11 +1574,16 @@ PrefabInstance:
       propertyPath: Damage
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: RandomizeSprite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4424291846816458487, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5546671543968653177, guid: ae0430b2909f260428d586ee0630940e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3805350816856075144, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4207,6 +4217,10 @@ PrefabInstance:
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: Damage
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: RandomizeSprite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4424291846816458487, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: m_Sprite
@@ -9581,11 +9595,16 @@ PrefabInstance:
       propertyPath: Damage
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: RandomizeSprite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4424291846816458487, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5546671543968653177, guid: ae0430b2909f260428d586ee0630940e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3805350816856075144, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
