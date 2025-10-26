@@ -31,6 +31,8 @@ public class BoardManager : MonoBehaviour
     [Header("Enemigos")]
     public GameObject[] EnemyPrefabs;
     [Min(0)] public int EnemyCount = 0;
+    [Tooltip("En el nivel procedural, los enemigos quedan quietos y no son empujables.")]
+    public bool EnemiesStationary = true;
 
     [Tooltip("Optional: Margen donde no esta permitido spawnear objetos.")]
     [Min(0)] public int SpawnMarginFromBorder = 1;
@@ -134,18 +136,32 @@ public class BoardManager : MonoBehaviour
 
                 Vector2Int cell = Candidates[0];
                 Candidates.RemoveAt(0);
-                InstantiateAtCell(Prefab, cell);
+                GameObject InstancedEnemy = InstantiateAtCell(Prefab, cell);
+                if (EnemiesStationary && InstancedEnemy != null)
+                {
+                    ControllerEnemigo ControllerEnemigo = InstancedEnemy.GetComponent<ControllerEnemigo>();
+                    if (ControllerEnemigo != null) ControllerEnemigo.enabled = false;
+                    
+                    Rigidbody2D RigidBody = InstancedEnemy.GetComponent<Rigidbody2D>();
+                    if (RigidBody != null)
+                    {
+                        RigidBody.bodyType = RigidbodyType2D.Kinematic;
+                        RigidBody.linearVelocity = Vector2.zero;
+                        RigidBody.angularVelocity = 0f;
+                        RigidBody.freezeRotation = true;
+                    }
+                }
             }
         }
     }
 
-    void InstantiateAtCell(GameObject Prefab, Vector2Int cell)
+    GameObject InstantiateAtCell(GameObject Prefab, Vector2Int cell)
     {
         Vector3Int cell3 = new Vector3Int(cell.x, cell.y, 0);
         Vector3 worldPos = TileMapGround.CellToWorld(cell3) + TileMapGround.cellSize * 0.5f;
         worldPos.z = 0f;
-
-        Instantiate(Prefab, worldPos, Quaternion.identity, transform);
+        
+        return Instantiate(Prefab, worldPos, Quaternion.identity, transform);
     }
     
     static void Shuffle<T>(IList<T> list)
