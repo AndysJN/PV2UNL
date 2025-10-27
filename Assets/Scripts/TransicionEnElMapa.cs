@@ -50,7 +50,7 @@ public class TransicionEnElMapa : MonoBehaviour
                 NewPosition = TeleportToPosition.position;
                 break;
             case Direction.TeleportToMap:
-                GameManager.Instance.GotoScene(2);
+                GameManager.Instance.GotoScene(FightMapIndex);
                 break;
             default:
                 break;

@@ -23,6 +23,25 @@ public class Herir : MonoBehaviour
         public Sprite Sprite;
         public int Damage = 10;
     }
+    
+    [Header("Disparo (Object Pooling)")]
+    [Tooltip("Pool de proyectiles compartido en la escena.")]
+    public ProjectilePool Pool;
+
+    [Tooltip("Rango de intervalo aleatorio entre ráfagas (segundos).")]
+    public float IntervalMin = 0.8f;
+    public float IntervalMax = 1.8f;
+
+    [Tooltip("Cantidad de proyectiles por ráfaga.")]
+    public int ProjectilesPerVolley = 1;
+
+    [Tooltip("Velocidad del proyectil")]
+    public float ProjectileSpeed = 12f;
+
+    [Tooltip("Habilitar disparo.")]
+    public bool EnableShooting = true;
+
+    private float Timer;
 
     void Awake()
     {
@@ -34,7 +53,13 @@ public class Herir : MonoBehaviour
             foreach (SpriteEntry Row in SpriteTable)
             {
                 if (Row == null || Row.Sprite == null) continue;
+                Lookup[Row.Sprite] = Row;
             }
+        }
+
+        if (Pool == null)
+        {
+            Pool = FindFirstObjectByType<ProjectilePool>(); 
         }
     }
 
@@ -52,6 +77,19 @@ public class Herir : MonoBehaviour
         {
             Damage = entry.Damage;
         }
+        
+        ResetTimer();
+    }
+
+    void Update()
+    {
+        if (!EnableShooting || !Pool) return;
+        Timer -= Time.deltaTime;
+        if (Timer <= 0f)
+        {
+            FireVolley();
+            ResetTimer();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -63,6 +101,29 @@ public class Herir : MonoBehaviour
             Debug.Log("El objeto Jugador: " + Jugador.gameObject.name + " ha sido herido por el objeto: " 
                       + gameObject.name + " por un total de " + Damage + " puntos de vida. Al jugador le quedan " 
                       + Jugador.GetHitPoints() + " puntos de vida.");
+        }
+    }
+    void ResetTimer()
+    {
+        float Min = Mathf.Max(0.05f, Mathf.Min(IntervalMin, IntervalMax));
+        float Max = Mathf.Max(Min + 0.01f, Mathf.Max(IntervalMin, IntervalMax));
+        Timer = UnityEngine.Random.Range(Min, Max);
+    }
+
+    void FireVolley()
+    {
+        int Count = Mathf.Max(1, ProjectilesPerVolley);
+        for (int i = 0; i < Count; ++i)
+        {
+            Projectile Proj = Pool.Get();
+            if (!Proj) return;
+            Vector3 SpawnPosition = transform.position;
+
+            Proj.transform.position = SpawnPosition;
+            Proj.transform.rotation = Quaternion.identity;
+            float angle = UnityEngine.Random.Range(0f, 360f) * Mathf.Deg2Rad;
+            Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            Proj.Initialize(dir, Damage, ProjectileSpeed);
         }
     }
 }

@@ -5075,7 +5075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 258387101793568896, guid: 35a50da1b4d52184482cc0062303a319, type: 3}
       propertyPath: FightMapIndex
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 258387101793568896, guid: 35a50da1b4d52184482cc0062303a319, type: 3}
       propertyPath: TravelDirection

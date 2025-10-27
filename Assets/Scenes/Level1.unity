@@ -403,6 +403,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1454540063901495584, guid: bc5b332ea264a1e4a88cfde8ff3a4087, type: 3}
   m_PrefabInstance: {fileID: 1477450362}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &119402979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3930112215778047605, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+  m_PrefabInstance: {fileID: 4025716432747390030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94beeef79a72e9f499fb3fc82c0f87c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &120259517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1584,10 @@ PrefabInstance:
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: Damage
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: EnableShooting
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: RandomizeSprite
@@ -4217,6 +4232,10 @@ PrefabInstance:
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: Damage
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: EnableShooting
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: RandomizeSprite
@@ -9381,6 +9400,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c16cdad6d7275419d903ed4f055291, type: 3}
+--- !u!1001 &4025716432747390030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5209068128697057183, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_Name
+      value: ProjectilePool
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.67992485
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1914346
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04684812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929951921465518802, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0df1f0d836276840be0ad507acfac63, type: 3}
 --- !u!1001 &5737030602335581273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9592,8 +9668,16 @@ PrefabInstance:
       value: Enemigo
       objectReference: {fileID: 0}
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: Pool
+      value: 
+      objectReference: {fileID: 119402979}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: Damage
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
+      propertyPath: EnableShooting
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202441895029522590, guid: 7a775d7138e1c4c41ad3a2183a50651b, type: 3}
       propertyPath: RandomizeSprite
@@ -9630,3 +9714,4 @@ SceneRoots:
   - {fileID: 371907714}
   - {fileID: 862573063}
   - {fileID: 649283512}
+  - {fileID: 4025716432747390030}
