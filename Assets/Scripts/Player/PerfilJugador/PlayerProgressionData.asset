@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef02e57644f919140a2e0236b0adfacb, type: 3}
   m_Name: PlayerProgressionData
   m_EditorClassIdentifier: 
-  Nivel: 1
+  Nivel: 0
   Experiencia: 0
   ExperienciaProximoNivel: 100
   EscalarExperiencia: 2
   MaxHitPoints: 100
-  Velocity: 5
+  Velocity: 4
   PorcAumVel: 1.1
